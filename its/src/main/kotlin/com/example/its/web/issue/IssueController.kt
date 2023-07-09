@@ -5,8 +5,11 @@ import com.example.its.domain.isuue.IssueService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
+import org.springframework.validation.BindingResult
+import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 
@@ -29,7 +32,20 @@ class IssueController(
     }
 
     @PostMapping
-    fun create(model: Model, form: IssueForm): String {
-        return showList(model)
+    fun create(model: Model, @Validated form: IssueForm, result: BindingResult): String {
+
+        if (result.hasErrors()) {
+            return register(form)
+        }
+
+        issueService.create(form.summary, form.description)
+        return "redirect:/issues"
+    }
+
+    @GetMapping("/{issueId}")
+    fun showDetail(@PathVariable("issueId") issueId: Long, model: Model): String {
+
+        model.addAttribute("issues", issueService.findById(issueId))
+        return "issues/detail"
     }
 }
