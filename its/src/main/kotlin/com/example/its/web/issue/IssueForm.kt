@@ -5,7 +5,6 @@ import jakarta.validation.constraints.Size
 import kotlin.math.max
 
 data class IssueForm(
-
     @field:NotBlank
     @field:Size(max=256)
     val summary: String?,

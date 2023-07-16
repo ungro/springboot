@@ -1,3 +1,3 @@
-insert into issues (summary, description) values ('ãƒã‚°A', 'ãƒã‚°ãŒã‚ã‚Šã¾ã™');
-insert into issues (summary, description) values ('æ©Ÿèƒ½è¦æœ›B', 'Bã«è¿½åŠ æ©Ÿèƒ½ãŒã»ã—ã„ã§ã™');
-insert into issues (summary, description) values ('ç”»é¢CãŒé…ã„', 'æ—©ãã—ã¦ã»ã—ã„ã§ã™');
+insert into issues (summary, description) values ('ƒoƒOA', 'ƒoƒO‚ª‚ ‚è‚Ü‚·');
+insert into issues (summary, description) values ('‹@”\—v–]B', 'B‚É’Ç‰Á‹@”\‚ª‚Ù‚µ‚¢‚Å‚·');
+insert into issues (summary, description) values ('‰æ–ÊC‚ª’x‚¢', '‘‚­‚µ‚Ä‚Ù‚µ‚¢‚Å‚·');

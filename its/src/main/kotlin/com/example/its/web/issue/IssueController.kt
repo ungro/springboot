@@ -16,9 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 @Controller
 @RequestMapping("/issues")
 class IssueController(
-    @Autowired
     private val issueService: IssueService
-
 ) {
     @GetMapping
     fun showList(model: Model): String {
