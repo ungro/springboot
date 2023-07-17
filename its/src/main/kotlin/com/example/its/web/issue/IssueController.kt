@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 
 @Controller
 @RequestMapping("/issues")
@@ -22,6 +23,12 @@ class IssueController(
     fun showList(model: Model): String {
         model.addAttribute("issueList", issueService.findAll())
         return "issues/list"
+    }
+
+    @GetMapping("/delete")
+    fun deleteIssueId(@RequestParam issueId: Long): String {
+        issueService.deleteIssue(issueId)
+        return "redirect:/issues"
     }
 
     @GetMapping("/creationForm")

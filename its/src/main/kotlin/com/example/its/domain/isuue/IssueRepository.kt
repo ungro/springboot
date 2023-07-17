@@ -1,5 +1,6 @@
 package com.example.its.domain.isuue
 
+import org.apache.ibatis.annotations.Delete
 import org.apache.ibatis.annotations.Insert
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Select
@@ -14,4 +15,7 @@ interface IssueRepository {
 
     @Select("SELECT * FROM issues where id = #{issueId}")
     fun findById(issueId: Long): IssueEntity
+
+    @Delete("DELETE FROM issues where id = #{issueId}")
+    fun deleteIssue(issueId: Long)
 }

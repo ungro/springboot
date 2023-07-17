@@ -6,10 +6,8 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 class IssueService(
-    @Autowired
-    val issueRepository: IssueRepository
+    private val issueRepository: IssueRepository
 ) {
-
     fun findAll(): List<IssueEntity> {
         return issueRepository.findAll()
     }
@@ -21,5 +19,10 @@ class IssueService(
 
     fun findById(issueId: Long): IssueEntity {
         return issueRepository.findById(issueId)
+    }
+
+    @Transactional
+    fun deleteIssue(issueId: Long) {
+        return issueRepository.deleteIssue(issueId)
     }
 }
